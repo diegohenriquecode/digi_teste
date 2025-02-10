@@ -107,6 +107,10 @@ Exemplo:
 }
 ```
 
+🧪 Testes End-to-End (E2E) com Cypress
+
+O projeto inclui testes end-to-end (E2E) usando Cypress para garantir que a aplicação funcione corretamente. Os testes cobrem funcionalidades como adicionar produtos ao carrinho e verificar a mensagem de carrinho vazio.
+
 ## 📝 Licença
 
 Este projeto está licenciado sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE) para mais detalhes.

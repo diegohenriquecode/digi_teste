@@ -6,7 +6,7 @@ import { useCartStore } from "../store";
 
 export const Header = () => {
     const { cart, toggleCart } = useCartStore();
-   const { t, currentLanguage, changeLanguage } = useLanguage(); 
+    const { t, currentLanguage, changeLanguage } = useLanguage(); 
   
     const handleLanguageChange = (event: SelectChangeEvent<string>) => {
       changeLanguage(event.target.value as string); 

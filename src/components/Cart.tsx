@@ -15,38 +15,50 @@ const Cart: React.FC<CartProps> = ({ open, toggleCart }) => {
   const { t } = useLanguage();
 
   return (
-    <Dialog open={open} onClose={toggleCart}>
-      <DialogTitle sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 2 }}>
+    <Dialog open={open} onClose={toggleCart} data-testid="cart-modal">
+      <DialogTitle sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 2 }} data-testid="cart-title">
         {t('modal.title')}
         <IconButton
           edge="end"
           color="inherit"
           onClick={toggleCart}
           aria-label="close"
+          data-testid="close-cart-button"
         >
           <CloseIcon />
         </IconButton>
       </DialogTitle>
       <DialogContent>
-        {cart.length === 0 ? (
-          <Typography variant="body1" sx={{ textAlign: 'center', padding: 2 }}>
-            {t('modal.emptyCart')}
-          </Typography>
-        ) : (
-          <List>
-            {cart.map((item: Product, index: number) => (
-              <ListItem key={index} sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-                <ListItemText
-                  primary={item.name}
-                  secondary={new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(Number(item.price))}
-                />
-                <Button variant="outlined" color="error" onClick={() => removeFromCart(index)}>
-                  {t('modal.remove')}
-                </Button>
-              </ListItem>
-            ))}
-          </List>
-        )}
+        <List>
+          {cart.map((item: Product, index: number) => (
+            <ListItem
+              key={index}
+              sx={{ display: "flex", alignItems: "center", gap: 2 }}
+              data-testid={`cart-item-${index}`}
+            >
+              <ListItemText
+                primary={item.name}
+                secondary={new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(Number(item.price))}
+                data-testid={`cart-item-name-${index}`}
+              />
+              <Button
+                variant="outlined"
+                color="error"
+                onClick={() => removeFromCart(index)}
+                data-testid={`remove-item-${index}`}
+              >
+                {t('modal.remove')}
+              </Button>
+            </ListItem>
+          ))}
+        </List>
+        <Typography
+          variant="body1"
+          sx={{ textAlign: 'center', marginTop: 2 }}
+          data-testid="cart-total-items"
+        >
+          Total de itens: {cart.length}
+        </Typography>
       </DialogContent>
     </Dialog>
   );
