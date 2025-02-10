@@ -1,0 +1,11 @@
+{
+  "cart": "Loja",
+  "addToCart": "Adicionar ao Carrinho",
+  "footer": "© {{year}} Digi-Test. Todos os direitos reservados.",
+
+  "modal": {
+    "title": "Carrinho de Compras",
+    "remmove": "Remover",
+    "emptyCart": "Nenhum item adicionado ainda."
+  }
+}
