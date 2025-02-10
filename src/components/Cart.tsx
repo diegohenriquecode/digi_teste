@@ -1,4 +1,3 @@
-import React from "react";
 import { Dialog, DialogTitle, DialogContent, List, ListItem, ListItemText, Button, IconButton, Typography } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { Product } from "../types";
@@ -10,7 +9,7 @@ interface CartProps {
   toggleCart: () => void;
 }
 
-const Cart: React.FC<CartProps> = ({ open, toggleCart }) => {
+const Cart: React.FC<CartProps> = ({ open, toggleCart }: CartProps) => {
   const { cart, removeFromCart } = useCartStore();
   const { t } = useLanguage();
 
